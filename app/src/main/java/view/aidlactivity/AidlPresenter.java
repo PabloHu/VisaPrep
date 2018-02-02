@@ -7,11 +7,8 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.software.huaman.visaprep.ICommunicate;
-
-import view.mainselection.Contract;
 
 import static android.content.Context.BIND_AUTO_CREATE;
 
@@ -20,7 +17,7 @@ import static android.content.Context.BIND_AUTO_CREATE;
  * Created by kiwic on 1/30/2018.
  */
 
-public class AidlPresenter implements AidlContract.Presenter {
+public class AidlPresenter implements AidlContract.AidlPresenter {
     private static final String TAG = "AidlPresenterTag";
     AidlContract.View view;
     Context context;
@@ -29,11 +26,9 @@ public class AidlPresenter implements AidlContract.Presenter {
     ServiceConnection CommunicateServiceConnection;
 
 
-
-
     @Override
-    public void attachView(Contract.View view) {
-        
+    public void attachView(AidlContract.View view) {
+        this.view = view;
     }
 
     @Override
@@ -44,7 +39,7 @@ public class AidlPresenter implements AidlContract.Presenter {
     @Override
     public void userNameInput(Context context, String name) {
 
-        String result = "";
+        String result = "-->>";
         Log.d(TAG, "btnCommunicate: " + "Starting");
 
         try {
@@ -57,23 +52,23 @@ public class AidlPresenter implements AidlContract.Presenter {
         view.updateResult(result);
     }
 
+    //Initiate connettion to Server
     @Override
-    public void initiateConnection(Context context) {
+    public void initiateConnection(Context context, ServiceConnection CommunicateServiceConnection) {
         this.context = context;
+        this.CommunicateServiceConnection = CommunicateServiceConnection;
         CommunicateServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 CommunicateService = ICommunicate.Stub.asInterface((IBinder) iBinder);
 
-               // Toast.makeText(context, "Communicate Service Connected", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "onServiceConnected: Binding is done - Service Connected");
+                Log.d(TAG, "onServiceConnected: Binding is done - Service Connected!");
             }
 
             @Override
             public void onServiceDisconnected(ComponentName componentName) {
 
                 CommunicateService = null;
-             //   Toast.makeText(context, "Service disconnected", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onServiceDisconnected: Binding - Service Disconnected");
             }
         };
@@ -86,6 +81,8 @@ public class AidlPresenter implements AidlContract.Presenter {
             context.startService(serviceIntent);
             context.bindService(serviceIntent, CommunicateServiceConnection, BIND_AUTO_CREATE);
         }
+        view.updateServiceConnection(CommunicateServiceConnection);
     }
+
 
 }

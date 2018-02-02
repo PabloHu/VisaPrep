@@ -28,6 +28,13 @@
 
 
         </service>
+
+        <provider
+
+            android:authorities="com.software.huaman.visaservice.contentprovider.ContactsProvider"
+            android:name=".contentprovider.ContactsProvider"
+            android:exported="true"
+            ></provider>
     </application>
 
 </manifest>

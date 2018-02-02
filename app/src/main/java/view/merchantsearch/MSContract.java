@@ -1,4 +1,4 @@
-package view.aidlactivity;
+package view.merchantsearch;
 
 import android.content.Context;
 import android.content.ServiceConnection;
@@ -7,17 +7,19 @@ import view.BasePresenter;
 import view.BaseView;
 
 /**
- * Created by kiwic on 1/30/2018.
+ * Created by kiwic on 1/31/2018.
  */
 
-public interface AidlContract {
+public interface MSContract {
     interface View extends BaseView {
         void updateResult(String resultName);
+        void updateMS(String resultName);
         void updateServiceConnection(ServiceConnection CommunicateServiceConnection);
     }
 
-    interface AidlPresenter extends BasePresenter<View> {
-        void userNameInput(Context context, String name);
+    interface MSPresenter extends BasePresenter<View> {
+        void merchantSearch(Context context);
         void initiateConnection(Context context, ServiceConnection CommunicateServiceConnection);
+
     }
 }

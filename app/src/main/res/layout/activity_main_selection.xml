@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         />
     <Button
-        android:id="@+id/btnMSA"
+        android:id="@+id/btnMerchantSearch"
         android:text="Merchant Search"
         android:onClick="userSelection"
         android:layout_width="match_parent"

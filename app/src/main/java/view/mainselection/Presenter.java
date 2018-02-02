@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.software.huaman.visaprep.R;
 
 import view.aidlactivity.AidlActivity;
+import view.merchantsearch.MSActivity;
 
 /**
  * Created by kiwic on 1/30/2018.
@@ -34,6 +35,10 @@ public class Presenter implements Contract.Presenter {
             case R.id.btnAidl:
                 Intent intent = new Intent(context, AidlActivity.class);
                 context.startActivity(intent);
+                break;
+            case R.id.btnMerchantSearch:
+                Intent merchantIntent = new Intent(context, MSActivity.class);
+                context.startActivity(merchantIntent);
                 break;
         }
 
