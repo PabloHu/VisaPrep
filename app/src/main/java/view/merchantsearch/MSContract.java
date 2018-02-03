@@ -3,6 +3,9 @@ package view.merchantsearch;
 import android.content.Context;
 import android.content.ServiceConnection;
 
+import java.util.List;
+
+import model.MerchSearch;
 import view.BasePresenter;
 import view.BaseView;
 
@@ -12,8 +15,7 @@ import view.BaseView;
 
 public interface MSContract {
     interface View extends BaseView {
-        void updateResult(String resultName);
-        void updateMS(String resultName);
+        void updateMSView(List<MerchSearch> merchSearchList);
         void updateServiceConnection(ServiceConnection CommunicateServiceConnection);
     }
 

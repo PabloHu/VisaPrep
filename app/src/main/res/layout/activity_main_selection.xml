@@ -21,13 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
-    <Button
-        android:id="@+id/btnVisCheckout"
-        android:text="Visa Checkout"
-        android:onClick="userSelection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+
     <Button
         android:id="@+id/btnForeignExchange"
         android:text="Foreign Exchange"

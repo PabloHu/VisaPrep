@@ -7,7 +7,6 @@ import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.util.Log;
 
 import com.software.huaman.visaprep.ICommunicate;
@@ -15,7 +14,7 @@ import com.software.huaman.visaprep.ICommunicate;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
+import model.MerchSearch;
 
 import static android.content.Context.BIND_AUTO_CREATE;
 
@@ -24,13 +23,18 @@ import static android.content.Context.BIND_AUTO_CREATE;
  */
 
 public class MSPresenter implements MSContract.MSPresenter {
-    public static final String MS_NAME ="Name";
-    public static final String MS_CITY ="City";
-    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.ContactsProvider";
+    public static final String MS_ID = "ID";
+    public static final String MS_NAME = "Name";
+    public static final String MS_CITY = "City";
+    public static final String MS_STATE = "State";
+    public static final String MS_POSTALCODE = "PostalCode";
+    public static final String MS_LOGO = "Logo";
+
+    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.MerchSearchProvider";
     private static final String BASE_PATH = "merchantsearch";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
     Uri contentURI = CONTENT_URI;
-    ContactObj contactObj;
+    MerchSearch merchSearch;
 
     private static final String TAG = "MSPresenterTag";
     MSContract.View view;
@@ -54,41 +58,43 @@ public class MSPresenter implements MSContract.MSPresenter {
         String result = "-->>";
 
 
-
         Cursor cursor = context.getContentResolver().query(contentURI, null, null, null, null);
 
-        List<ContactObj> contactObjList = new ArrayList<>();
+        List<MerchSearch> merchSearchList = new ArrayList<>();
 
-        while(cursor.moveToNext()){
-            contactObj = new ContactObj();
+        while (cursor.moveToNext()) {
+            merchSearch = new MerchSearch();
 
-
+            int dbGetId = cursor.getInt(cursor.getColumnIndex(MS_ID));
             String dbGetName = cursor.getString(cursor.getColumnIndex(MS_NAME));
-            String dbGetPhone = cursor.getString(cursor.getColumnIndex(MS_CITY));
+            String dbGetCity = cursor.getString(cursor.getColumnIndex(MS_CITY));
+            String dbGetState = cursor.getString(cursor.getColumnIndex(MS_STATE));
+            String dbGetPostalCode = cursor.getString(cursor.getColumnIndex(MS_POSTALCODE));
+            String dbGetLogo = cursor.getString(cursor.getColumnIndex(MS_LOGO));
 
-            contactObj.setName(dbGetName);
-            contactObj.setPhone(dbGetPhone);
+            merchSearch.setId(dbGetId);
+            merchSearch.setName(dbGetName);
+            merchSearch.setCity(dbGetCity);
+            merchSearch.setState(dbGetState);
+            merchSearch.setPostalCode(dbGetPostalCode);
+            merchSearch.setLogo(dbGetLogo);
 
-            contactObjList.add(contactObj);
-
-//            Log.d("TAG", "DBreq: " + result);
+            merchSearchList.add(merchSearch);
 
 
         }
-        for (int i = 0; i <contactObjList.size() ; i++) {
-            Log.d(TAG, "onCreate: "+contactObjList.get(i).getName() + " " + contactObjList.get(i).getPhone());
+        for (int i = 0; i < merchSearchList.size(); i++) {
+            Log.d(TAG, "onCreate: " + merchSearchList.get(i).getId()
+                    + " - " + merchSearchList.get(i).getName()
+                    + " - " + merchSearchList.get(i).getCity()
+                    + " - " + merchSearchList.get(i).getState()
+                    + " - " + merchSearchList.get(i).getPostalCode()
+                    + " - " + merchSearchList.get(i).getLogo()
+            );
 
         }
-/*
-        RequestAppFragment requestAppFragment  = RequestAppFragment.newInstance(contactObjList);
-        this.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.flFragHolderCarOptions, requestAppFragment, CAR_OPTIONS_FRAGMENT_TAG)
-                .addToBackStack(CAR_OPTIONS_FRAGMENT_TAG)
 
-                .commit();
-     */
-        view.updateResult(result);
+        view.updateMSView(merchSearchList);
     }
 
     @Override

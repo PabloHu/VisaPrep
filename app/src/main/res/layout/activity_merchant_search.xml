@@ -6,9 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="view.merchantsearch.MSActivity">
-<Button
-    android:id="@+id/btnMerchantSearch"
-    android:text="Merchant Search COM"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnMerchantSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Merchant Search COM" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMerchSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

@@ -18,4 +18,6 @@ public interface Contract {
     interface Presenter extends BasePresenter<View> {
         void userBtnSelection(Context context, int activitySelected);
     }
+
+
 }

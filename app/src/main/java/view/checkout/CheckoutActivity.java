@@ -8,6 +8,7 @@ import com.software.huaman.visaprep.R;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import injection.checkout.DaggerCheckoutActivityComponent;
 
 public class CheckoutActivity extends AppCompatActivity implements CheckoutContract.View {
 
@@ -24,7 +25,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutContr
     }
 
     private void setupDaggerComponent() {
-//DaggerCheckoutActivityComponent.create().inject(this);
+    DaggerCheckoutActivityComponent.create().inject(this);
     }
 
     @Override

@@ -13,17 +13,17 @@ import android.support.annotation.Nullable;
  * Created by kiwic on 2/1/2018.
  */
 
-public class ContactsProvider extends ContentProvider {
+public class MerchSearchProvider extends ContentProvider {
 
-    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.ContactsProvider";
+    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.MerchSearchProvider";
     private static final String BASE_PATH = "merchantsearch";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
 
-    private static final int CONTACTS = 1;
+    private static final int MERCHSEARCH = 1;
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
-        uriMatcher.addURI(AUTHORITY,BASE_PATH, CONTACTS);
+        uriMatcher.addURI(AUTHORITY,BASE_PATH, MERCHSEARCH);
     }
 
 
@@ -35,7 +35,7 @@ public class ContactsProvider extends ContentProvider {
     public String getType(Uri uri) {
 
         switch (uriMatcher.match(uri)) {
-            case CONTACTS:
+            case MERCHSEARCH:
                 return "vnd.android.cursor.dir/vnd.com.example.admin.week5monhw/merchantsearch";
             default:
                 throw new IllegalArgumentException("This is an Unknown URI " + uri);

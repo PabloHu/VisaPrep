@@ -11,7 +11,7 @@ import com.software.huaman.visaservice.contentprovider.DatabaseHelper;
 public class MainActivity extends AppCompatActivity {
 
     public static final String MS_NAME ="Name";
-    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.ContactsProvider";
+    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.MerchSearchProvider";
     private static final String BASE_PATH = "merchantsearch";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
 

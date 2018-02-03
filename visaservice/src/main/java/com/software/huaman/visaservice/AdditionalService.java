@@ -17,13 +17,12 @@ public class AdditionalService extends Service {
     private static final String TAG = "AdditionalServiceTag";
 
     public static final String KIWI_NAME ="Name";
-    private static final String AUTHORITY = "com.example.admin.week5monhw.ContactsProvider";
+    private static final String AUTHORITY = "com.example.admin.week5monhw.MerchSearchProvider";
     private static final String BASE_PATH = "contacts";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //   log("Received start command.");
         return START_STICKY;
     }
 

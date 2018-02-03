@@ -1,5 +1,5 @@
 
-package com.software.huaman.visaservice.model;
+package com.software.huaman.visaservice.model.merchsearch;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

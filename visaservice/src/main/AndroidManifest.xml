@@ -31,8 +31,8 @@
 
         <provider
 
-            android:authorities="com.software.huaman.visaservice.contentprovider.ContactsProvider"
-            android:name=".contentprovider.ContactsProvider"
+            android:authorities="com.software.huaman.visaservice.contentprovider.MerchSearchProvider"
+            android:name=".contentprovider.MerchSearchProvider"
             android:exported="true"
             ></provider>
     </application>
