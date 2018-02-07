@@ -1,5 +1,5 @@
 
-package view.checkout2.model;
+package com.software.huaman.visaservice.model.checkout;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -84,7 +84,4 @@ public class CheckoutResponse {
         this.userData = userData;
     }
 
-   // public CheckoutResponse(ShippingAddress shippingAddress) {
-    //    this.shippingAddress = shippingAddress;
-   // }
 }

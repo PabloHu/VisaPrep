@@ -35,6 +35,12 @@
             android:name=".contentprovider.MerchSearchProvider"
             android:exported="true"
             ></provider>
+        <provider
+
+            android:authorities="com.software.huaman.visaservice.contentprovider.CheckoutProvider"
+            android:name=".contentprovider.CheckoutProvider"
+            android:exported="true"
+            ></provider>
     </application>
 
 </manifest>

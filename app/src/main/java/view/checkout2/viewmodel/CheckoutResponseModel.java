@@ -1,10 +1,18 @@
 
-package view.checkout2.model;
+package view.checkout2.viewmodel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CheckoutResponse {
+import view.checkout2.model.CheckoutResponse;
+import view.checkout2.model.PartialShippingAddress;
+import view.checkout2.model.PaymentInstrument;
+import view.checkout2.model.PaymentRequest;
+import view.checkout2.model.RiskData;
+import view.checkout2.model.ShippingAddress;
+import view.checkout2.model.UserData;
+
+public class CheckoutResponseModel {
 
     @SerializedName("creationTimeStamp")
     @Expose
@@ -84,7 +92,9 @@ public class CheckoutResponse {
         this.userData = userData;
     }
 
-   // public CheckoutResponse(ShippingAddress shippingAddress) {
-    //    this.shippingAddress = shippingAddress;
-   // }
+    CheckoutResponse checkoutResponse;
+
+    public CheckoutResponseModel(CheckoutResponse checkoutResponse) {
+        this.checkoutResponse = checkoutResponse;
+    }
 }

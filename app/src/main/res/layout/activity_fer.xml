@@ -42,9 +42,9 @@
         <data>
     -       <variable
             name="presenter"
-            type="view.foreignexchangerate.core.presenter.FERActivityPresenter"/>
+            type="vview.foreignexchangeraterate.core.presenter.FERActivityPresenter"/>
 
-            <import type="view.foreignexchangerate.util.StringUtils"/>
+            <import type="vview.foreignexchangeraterate.util.StringUtils"/>
 
         </data>
 

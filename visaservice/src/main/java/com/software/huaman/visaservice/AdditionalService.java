@@ -16,10 +16,10 @@ public class AdditionalService extends Service {
 
     private static final String TAG = "AdditionalServiceTag";
 
-    public static final String KIWI_NAME ="Name";
+    public static final String KIWI_NAME = "Name";
     private static final String AUTHORITY = "com.example.admin.week5monhw.MerchSearchProvider";
     private static final String BASE_PATH = "contacts";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -37,17 +37,17 @@ public class AdditionalService extends Service {
     }
 
 
-    ICommunicate.Stub mbinder = new ICommunicate.Stub(){
+    ICommunicate.Stub mbinder = new ICommunicate.Stub() {
 
         @Override
         public String concatWelcome(String name) throws RemoteException {
             Log.d(TAG, "concatWelcome: c");
-            String a = "Welcome "+ name +"!";
+            String a = "Welcome " + name + "!";
             return a;
         }
     };
 
-    IComDB.Stub mbinderdb = new IComDB.Stub(){
+    IComDB.Stub mbinderdb = new IComDB.Stub() {
 
 
         @Override
@@ -59,5 +59,5 @@ public class AdditionalService extends Service {
     };
 
 
-   // ICommunicate.Stub mbinder
+    // ICommunicate.Stub mbinder
 }

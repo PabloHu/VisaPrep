@@ -6,28 +6,199 @@
 
     <data>
         <variable
-            name="login"
-            type="view.checkout2.viewmodel.CheckoutResponse"
+            name="VisaCheckOut"
+            type="view.checkout2.viewmodel.CheckoutResponseModel"
             />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical"
-        tools:context="view.checkout.CheckoutActivity">
+        tools:context="view.checkout2.Checkout2Activity">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="login"/>
+            android:orientation="horizontal">
+            <TextView
+             android:text="City"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.city}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Country Code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvCountryCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.countryCode}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="First Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvFirstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.firstName}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="ID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.id}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Last Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.lastName}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvLine1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.line1}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Person mame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.personName}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Postal Code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvPostalCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.postalCode}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="State Province Code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvStateProvinceCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.stateProvinceCode}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Verification Status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"/>
+            <TextView
+                android:id="@+id/tvVerificationStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{VisaCheckOut.shippingAddress.verificationStatus}"
+                android:layout_weight="1"
+                android:gravity="left"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </layout>

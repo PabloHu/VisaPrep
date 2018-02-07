@@ -10,10 +10,12 @@ import com.software.huaman.visaservice.contentprovider.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String MS_NAME ="Name";
+    public static final String MS_NAME = "Name";
     private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.MerchSearchProvider";
     private static final String BASE_PATH = "merchantsearch";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
+    private static final String BASE_CHECKOUT_PATH = "checkout";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
+    public static final Uri CONTENT_CHECKOUT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_CHECKOUT_PATH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void dbAccess(){
+    public void dbAccess() {
         DatabaseHelper starterDB = new DatabaseHelper(this);
         starterDB.readDB();
 
@@ -32,7 +34,22 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
+            String result = cursor.getString(cursor.getColumnIndex(MS_NAME));
+            Log.d("TAG", "DB: " + result);
+        }
+    }
+
+    public void dbCheckoutAccess() {
+        DatabaseHelper starterDB = new DatabaseHelper(this);
+        starterDB.readDB();
+
+        Uri contentURI = CONTENT_CHECKOUT_URI;
+
+
+        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+
+        while (cursor.moveToNext()) {
             String result = cursor.getString(cursor.getColumnIndex(MS_NAME));
             Log.d("TAG", "DB: " + result);
         }

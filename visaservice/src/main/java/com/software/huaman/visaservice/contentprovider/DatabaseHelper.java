@@ -39,6 +39,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String ER_TIMESTAMP ="TimeStamp";
 
+    //--Checkout
+
+    public static final String TABLE3_NAME="checkoutShipAdd";
+
+    public static final String CK_ID ="ID";
+    public static final String CK_CITY ="City";
+    public static final String Ck_COUNTRYCODE ="CountryCode";
+    public static final String CK_FIRSTNAME ="FirstName";
+    public static final String CK_PERSON_ID ="PersonId";
+    public static final String CK_LASTNAME ="LastName";
+    public static final String CK_LINE1 ="Line1";
+    public static final String CK_PERSONNAME ="PersonName";
+    public static final String CK_POSTALCODE ="PostalCode";
+    public static final String CK_STATEPROVIDENCECODE ="StateProvidenceCode";
+    public static final String CK_VERIFICATIONSTATUS ="VerificationStatus";
+
+    public static final String CK_TIMESTAMP ="TimeStamp";
+
+
     private static final String TAG = "DatabaseTAG";
 
     public DatabaseHelper(Context context) {
@@ -80,7 +99,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         autoFillData2(sqLiteDatabase);
 
 
+        //CHECKOUT TABLE
+        CREATE_TABLE = "CREATE TABLE " + TABLE3_NAME + "("+
+                CK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                CK_CITY + " CHAR(50) NOT NULL," +
+                Ck_COUNTRYCODE + " CHAR(50)," +
+                CK_FIRSTNAME + " CHAR(50)," +
+                CK_PERSON_ID + " CHAR(50)," +
+                CK_LASTNAME + " CHAR(50)," +
+                CK_LINE1 + " CHAR(500)," +
+                CK_PERSONNAME + " CHAR(500)," +
+                CK_POSTALCODE + " CHAR(500)," +
+                CK_STATEPROVIDENCECODE + " CHAR(500)," +
+                CK_VERIFICATIONSTATUS + " CHAR(500)," +
+                CK_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP"+
+                ")";
 
+
+        sqLiteDatabase.execSQL(CREATE_TABLE);
+
+        autoFillData3(sqLiteDatabase);
+
+    }
+
+    private void autoFillData3(SQLiteDatabase sqLiteDatabase) {
+        ContentValues values = new ContentValues();
+        values.put(CK_CITY, "Foster City");
+        values.put(Ck_COUNTRYCODE, "US");
+        values.put(CK_FIRSTNAME, "Joe");
+        values.put(CK_PERSON_ID, "...");
+        values.put(CK_LASTNAME, "Tester");
+        values.put(CK_LINE1, "...");
+        values.put(CK_PERSONNAME, "Joe Tester");
+        values.put(CK_POSTALCODE, "94404");
+        values.put(CK_STATEPROVIDENCECODE, "CA");
+        values.put(CK_VERIFICATIONSTATUS, "NOT_VERIFIED");
+        sqLiteDatabase.insert(TABLE3_NAME, null,values);
     }
 
     private void autoFillData2(SQLiteDatabase sqLiteDatabase) {

@@ -20,6 +20,7 @@ import java.util.List;
 
 import model.MerchSearch;
 import view.checkout.CheckoutActivity;
+import view.checkout2.Checkout2Activity;
 
 /**
  * Created by kiwic on 2/3/2018.
@@ -99,7 +100,10 @@ public class MSRVAdapter extends RecyclerView.Adapter<MSRVAdapter.ViewHolder> {
         holder.cvMerchId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent checkoutIntent = new Intent(context, CheckoutActivity.class);
+               // Intent checkoutIntent = new Intent(context, CheckoutActivity.class);
+               // context.startActivity(checkoutIntent);
+
+                Intent checkoutIntent = new Intent(context, Checkout2Activity.class);
                 context.startActivity(checkoutIntent);
             }
         });
