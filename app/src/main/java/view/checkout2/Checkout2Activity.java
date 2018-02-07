@@ -21,6 +21,6 @@ public class Checkout2Activity extends AppCompatActivity {
 
         activityCheckout2Binding = DataBindingUtil.setContentView(this,R.layout.activity_checkout2 );
 
-        CheckoutResponse checkoutResponse = new CheckoutResponse(new PartialShippingAddress("t","g",""));
+        //CheckoutResponse checkoutResponse = new CheckoutResponse(new PartialShippingAddress("t","g",""));
     }
 }

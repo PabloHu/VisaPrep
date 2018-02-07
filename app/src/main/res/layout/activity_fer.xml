@@ -1,9 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.foreignexchangerate.FERActivity">
+    android:orientation="vertical"
+    tools:context="view.mainselection.MainSelectionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnAidl"
+        android:text="Aidl"
+        android:onClick="userSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btnMerchantSearch"
+        android:text="Merchant Search"
+        android:onClick="userSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/btnForeignExchange"
+        android:text="Foreign Exchange"
+        android:onClick="userSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+
+        <data>
+    -       <variable
+            name="presenter"
+            type="view.foreignexchangerate.core.presenter.FERActivityPresenter"/>
+
+            <import type="view.foreignexchangerate.util.StringUtils"/>
+
+        </data>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <cz.kinst.jakub.view.StatefulLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:state="@{presenter.getViewModel().state}">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/weatherLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/button"
+                        android:layout_alignParentTop="true"
+                        android:layout_toLeftOf="@+id/button"
+                        android:layout_toStartOf="@+id/button"
+                        android:background="#FFF"
+                        android:inputType="textCapWords"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:textColor="#000"
+                        android:textSize="21sp"
+                        tools:text="London"/>
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:onClick="@{() -> presenter.onLocationSubmit()}"
+                        android:text="@string/search"/>
+
+                    <TextView
+                        android:id="@+id/temperatureTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/weatherLocation"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:text='@{StringUtils.parseTemperature(presenter.getViewModel().currentWeatherEntity.main.temp)}'
+                        android:textColor="@android:color/white"
+                        android:textSize="48sp"
+                        tools:text="24C"/>
+
+                    <TextView
+                        android:id="@+id/requestState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        tools:text="@string/success"
+                        android:layout_centerInParent="true"
+                        android:textColor="#FFF"
+                        android:textSize="24sp"/>
+                </RelativeLayout>
+
+            </cz.kinst.jakub.view.StatefulLayout>
+
+        </LinearLayout>
+    </layout>
+    -->

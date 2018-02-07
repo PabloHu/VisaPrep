@@ -22,7 +22,7 @@
         <activity android:name="view.aidlactivity.AidlActivity" />
         <activity android:name="view.merchantsearch.MSActivity" />
         <activity android:name="view.checkout.CheckoutActivity" />
-        <activity android:name="view.foreignexchangerate.FERActivity" />
+        <activity android:name="view.foreignexchangerate.activity.FERActivity" />
         <activity android:name="view.checkout2.Checkout2Activity"></activity>
     </application>
 
