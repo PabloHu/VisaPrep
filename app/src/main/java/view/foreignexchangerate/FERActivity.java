@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.software.huaman.visaprep.R;
 
-public class FERActivity extends AppCompatActivity implements FERContract.View, Interactors {
+public class FERActivity extends AppCompatActivity implements FERContract.View {
 
     FERPresenter ferpresenter = new FERPresenter();
     @Override
@@ -14,7 +14,7 @@ public class FERActivity extends AppCompatActivity implements FERContract.View, 
         setContentView(R.layout.activity_fer2);
         ferpresenter.attachView(this);
 
-        ferpresenter.FERSearch();
+        //ferpresenter.FERSearch();
     }
 
     @Override

@@ -2,13 +2,17 @@ package view.foreignexchangerate;
 
 import android.content.Context;
 
+import view.checkout.CheckoutContract;
+
 /**
  * Created by kiwic on 2/7/2018.
  */
 
-public class FERPresenter implements FERContract.FERPresenter, Interactors {
+public class FERPresenter implements FERContract.FERPresenter {
 
-    Interactors si;
+
+    SearchInteractor searchInteractor;
+
     FERContract.View view;
     Context context;
 
@@ -25,7 +29,10 @@ public class FERPresenter implements FERContract.FERPresenter, Interactors {
     @Override
     public void FERSearch() {
 
-        si.
+SearchInteractor m = new SearchInteractor((MyListener) this);
+m.callback((CheckoutContract.View) this, "Something");
+
     }
+
 
 }
