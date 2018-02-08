@@ -13,20 +13,19 @@ public class LoginInteractor implements FERContract.Interactor {
 
 
     @Override
-    public void attachView(FERContract.InteactorOutput inteactorOutput) {
-        this.inteactorOutput = inteactorOutput;
-    }
-
-    @Override
-    public void detachView() {
-        this.inteactorOutput = null;
-    }
-
-
-    @Override
     public void login(String var1, String var2) {
         Log.d(TAG, "login: " + var1 + var2);
         inteactorOutput.onLoginSuccess("done!!!");
 
+    }
+
+    @Override
+    public void attachView(FERContract.InteactorOutput view) {
+        this.inteactorOutput = view;
+    }
+
+    @Override
+    public void detachView() {
+        inteactorOutput = null;
     }
 }

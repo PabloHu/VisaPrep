@@ -44,14 +44,15 @@ public class FERPresenter implements FERContract.FERPresenter, FERContract.Intea
 
     }
 
+
     @Override
-    public void onLoginSuccess(String output) {
-        Log.d(TAG, "onLoginSuccess: "+output);
+    public void onLoginSuccess(String saySomething) {
+        Log.d(TAG, "onLoginSuccess: ");
     }
 
     @Override
     public void onLoginError(String msg) {
-        view.showError("ERRRRRRORRRRR");
+
     }
 
     @Override
