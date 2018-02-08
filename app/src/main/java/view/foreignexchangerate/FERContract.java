@@ -11,10 +11,13 @@ import view.BaseView;
 
 public interface FERContract {
     interface View extends BaseView {
-
         void updateFER(String n);
-
     }
+    interface FERPresenter extends BasePresenter<View> {
+        void onDestroy();
+        void onLoginButtonPressed(String user, String pass);
+    }
+
     interface InteactorOutput  extends  BaseView{
         void onLoginSuccess(String saySomething);
         void onLoginError(String msg);
@@ -23,12 +26,7 @@ public interface FERContract {
         void login(String var1,  String var2);
     }
 
-    interface FERPresenter extends BasePresenter<View> {
 
-
-        void onDestroy();
-        void onLoginButtonPressed(String user, String pass);
-    }
 
 
     public interface Router {
