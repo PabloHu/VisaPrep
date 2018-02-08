@@ -38,6 +38,7 @@ public class FERPresenter implements FERContract.FERPresenter, FERContract.Intea
     @Override
     public void onLoginButtonPressed(String user, String pass) {
         Log.d(TAG, "onLoginButtonPressed: ");
+
         interactor.login(user, pass);
 
 
