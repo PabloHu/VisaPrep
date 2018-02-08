@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.software.huaman.visaprep.R;
 
 import view.aidlactivity.AidlActivity;
-import view.foreignexchangerateNotGOOOD.activity.FERActivity;
 import view.merchantsearch.MSActivity;
 
 /**

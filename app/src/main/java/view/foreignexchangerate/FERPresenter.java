@@ -1,26 +1,31 @@
 package view.foreignexchangerate;
 
 import android.content.Context;
+import android.content.ServiceConnection;
 import android.util.Log;
 
-import view.checkout.CheckoutContract;
+
+import view.foreignexchangerate.interactors.SearchRateInteractor;
+import view.foreignexchangerate.interactors.ServiceConnectionInteractor;
+import view.foreignexchangerate.model.FERResponse;
 
 /**
  * Created by kiwic on 2/7/2018.
  */
 
-public class FERPresenter implements FERContract.FERPresenter, FERContract.InteactorOutput {
+public class FERPresenter implements FERContract.FERPresenter, FERContract.FERInteractorOutput, FERContract.SearchInteractorOutput {
     public static final String TAG = "FERPresenterTAG";
     FERContract.View view;
-    FERContract.Interactor interactor = new LoginInteractor();
     Context context;
-
+    FERContract.FERInteractor ferInteractor;
+    FERContract.SearchInteractor searchInteractor;
 
 
     @Override
     public void attachView(FERContract.View view) {
         this.view = view;
-
+        this.ferInteractor = new ServiceConnectionInteractor((FERContract.FERInteractorOutput) this);
+        this.searchInteractor = new SearchRateInteractor((FERContract.SearchInteractorOutput) this);
     }
 
     @Override
@@ -36,27 +41,23 @@ public class FERPresenter implements FERContract.FERPresenter, FERContract.Intea
     }
 
     @Override
-    public void onLoginButtonPressed(String user, String pass) {
-        Log.d(TAG, "onLoginButtonPressed: ");
-
-        interactor.login(user, pass);
-
-
-    }
-
-
-    @Override
-    public void onLoginSuccess(String saySomething) {
-        Log.d(TAG, "onLoginSuccess: ");
+    public void FERSearch(Context context) {
+        searchInteractor.searchFER(context);
     }
 
     @Override
-    public void onLoginError(String msg) {
-
+    public void initiateConnection(Context context, ServiceConnection CommunicateServiceConnection) {
+        ferInteractor.serviceConnection(context, CommunicateServiceConnection);
     }
 
     @Override
-    public void showError(String s) {
+    public void onServConnSuccess(ServiceConnection CommunicateServiceConnection) {
+        view.updateServiceConnection(CommunicateServiceConnection);
+        Log.d(TAG, "onServConnSuccess: ");
+    }
 
+    @Override
+    public void onSearchSuccess(FERResponse ferResponse) {
+        view.updateFERView(ferResponse);
     }
 }

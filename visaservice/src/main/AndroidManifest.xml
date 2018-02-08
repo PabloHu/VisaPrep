@@ -41,6 +41,12 @@
             android:name=".contentprovider.CheckoutProvider"
             android:exported="true"
             ></provider>
+        <provider
+
+            android:authorities="com.software.huaman.visaservice.contentprovider.FoExRateProvider"
+            android:name=".contentprovider.FoExRateProvider"
+            android:exported="true"
+            ></provider>
     </application>
 
 </manifest>

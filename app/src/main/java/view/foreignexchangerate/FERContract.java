@@ -1,9 +1,14 @@
 package view.foreignexchangerate;
 
 import android.content.Context;
+import android.content.ServiceConnection;
 
+import java.util.List;
+
+import model.MerchSearch;
 import view.BasePresenter;
 import view.BaseView;
+import view.foreignexchangerate.model.FERResponse;
 
 /**
  * Created by kiwic on 2/7/2018.
@@ -11,27 +16,29 @@ import view.BaseView;
 
 public interface FERContract {
     interface View extends BaseView {
-        void updateFER(String n);
+        void updateFERView(FERResponse ferResponse);
+        void updateServiceConnection(ServiceConnection CommunicateServiceConnection);
     }
     interface FERPresenter extends BasePresenter<View> {
         void onDestroy();
-        void onLoginButtonPressed(String user, String pass);
+        void FERSearch(Context context);
+        void initiateConnection(Context context, ServiceConnection CommunicateServiceConnection);
     }
 
-    interface InteactorOutput  extends  BaseView{
-        void onLoginSuccess(String saySomething);
-        void onLoginError(String msg);
+    interface FERInteractorOutput  {
+        void onServConnSuccess(ServiceConnection CommunicateServiceConnection);
     }
-    interface Interactor extends BasePresenter<InteactorOutput>{
-        void login(String var1,  String var2);
+    interface FERInteractor {
+        void serviceConnection(Context context, ServiceConnection CommunicateServiceConnection);
+    }
+    interface SearchInteractorOutput  {
+        void onSearchSuccess(FERResponse ferResponse);
+    }
+    interface SearchInteractor {
+        void searchFER(Context context);
     }
 
 
 
 
-    public interface Router {
-        void unregister();
-
-        void presentHomeScreen();
-    }
 }

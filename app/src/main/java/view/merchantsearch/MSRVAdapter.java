@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.software.huaman.visaprep.R;
 import com.squareup.picasso.Picasso;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.MerchSearch;
-import view.checkout.CheckoutActivity;
 import view.checkout2.Checkout2Activity;
 
 /**
@@ -100,9 +98,6 @@ public class MSRVAdapter extends RecyclerView.Adapter<MSRVAdapter.ViewHolder> {
         holder.cvMerchId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent checkoutIntent = new Intent(context, CheckoutActivity.class);
-               // context.startActivity(checkoutIntent);
-
                 Intent checkoutIntent = new Intent(context, Checkout2Activity.class);
                 context.startActivity(checkoutIntent);
             }

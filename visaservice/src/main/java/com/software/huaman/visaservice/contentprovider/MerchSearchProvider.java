@@ -17,13 +17,14 @@ public class MerchSearchProvider extends ContentProvider {
 
     private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.MerchSearchProvider";
     private static final String BASE_PATH = "merchantsearch";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
 
     private static final int MERCHSEARCH = 1;
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
     static {
-        uriMatcher.addURI(AUTHORITY,BASE_PATH, MERCHSEARCH);
+        uriMatcher.addURI(AUTHORITY, BASE_PATH, MERCHSEARCH);
     }
 
 
@@ -54,14 +55,13 @@ public class MerchSearchProvider extends ContentProvider {
         Cursor cursor;
 
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
-        cursor=sqLiteDatabase.query(BASE_PATH, strings, s, strings1, null, null,s1);
+        cursor = sqLiteDatabase.query(BASE_PATH, strings, s, strings1, null, null, s1);
         cursor.setNotificationUri(
-                getContext().getContentResolver(),CONTENT_URI);
+                getContext().getContentResolver(), CONTENT_URI);
 
 
         return cursor;
     }
-
 
 
     @Nullable

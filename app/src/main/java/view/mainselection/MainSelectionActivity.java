@@ -59,6 +59,7 @@ public class MainSelectionActivity extends AppCompatActivity implements Contract
     public void showError(String s) {
 
     }
+
     @Override
     public void onStop() {
         super.onStop();

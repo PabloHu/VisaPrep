@@ -37,12 +37,13 @@ public class MSPresenter implements MSContract.MSPresenter {
     Uri contentURI = CONTENT_URI;
     MerchSearch merchSearch;
 
-    private static final String TAG = "MSPresenterTag";
-    MSContract.View view;
     Context context;
 
     ICommunicate CommunicateService;
     ServiceConnection CommunicateServiceConnection;
+
+    private static final String TAG = "MSPresenterTag";
+    MSContract.View view;
 
     @Override
     public void attachView(MSContract.View view) {
@@ -56,8 +57,6 @@ public class MSPresenter implements MSContract.MSPresenter {
 
     @Override
     public void merchantSearch(Context context) {
-        String result = "-->>";
-
 
         Cursor cursor = context.getContentResolver().query(contentURI, null, null, null, null);
 

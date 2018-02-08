@@ -10,13 +10,13 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 
 /**
- * Created by kiwic on 2/7/2018.
+ * Created by kiwic on 2/8/2018.
  */
 
-public class CheckoutProvider extends ContentProvider {
+public class FoExRateProvider extends ContentProvider {
 
-    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.CheckoutProvider";
-    private static final String BASE_PATH = "checkoutShipAdd";
+    private static final String AUTHORITY = "com.software.huaman.visaservice.contentprovider.FoExRateProvider";
+    private static final String BASE_PATH = "exchangerate";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
 
     private static final int MERCHSEARCH = 1;

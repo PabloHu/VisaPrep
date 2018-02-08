@@ -11,7 +11,7 @@ import view.BaseView;
 
 public interface Contract {
 
-    interface View extends BaseView{
+    interface View extends BaseView {
 
     }
 

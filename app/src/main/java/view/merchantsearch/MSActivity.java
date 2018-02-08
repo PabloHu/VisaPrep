@@ -35,8 +35,6 @@ public class MSActivity extends AppCompatActivity implements MSContract.View {
         mspresenter.attachView(this);
 
 
-
-
         initConnection();
         rvMerchSearch = (RecyclerView) findViewById(R.id.rvMerchSearch);
 
