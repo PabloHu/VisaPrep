@@ -16,6 +16,7 @@ import java.util.List;
 
 import model.MerchSearch;
 
+
 import static android.content.Context.BIND_AUTO_CREATE;
 
 /**
@@ -127,4 +128,6 @@ public class MSPresenter implements MSContract.MSPresenter {
         }
         view.updateServiceConnection(CommunicateServiceConnection);
     }
+
+
 }

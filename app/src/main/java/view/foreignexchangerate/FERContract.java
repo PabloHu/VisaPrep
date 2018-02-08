@@ -11,13 +11,29 @@ import view.BaseView;
 
 public interface FERContract {
     interface View extends BaseView {
-       // void updateMSView(List<MerchSearch> merchSearchList);
+
         void updateFER(String n);
+
+    }
+    interface InteactorOutput  extends  BaseView{
+        void onLoginSuccess(String saySomething);
+        void onLoginError(String msg);
+    }
+    interface Interactor extends BasePresenter<InteactorOutput>{
+        void login(String var1,  String var2);
     }
 
     interface FERPresenter extends BasePresenter<View> {
-        void FERSearch();
 
 
+        void onDestroy();
+        void onLoginButtonPressed(String user, String pass);
+    }
+
+
+    public interface Router {
+        void unregister();
+
+        void presentHomeScreen();
     }
 }
