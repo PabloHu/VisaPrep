@@ -16,13 +16,11 @@ import view.BaseView;
 public interface MSContract {
     interface View extends BaseView {
         void updateMSView(List<MerchSearch> merchSearchList);
-
         void updateServiceConnection(ServiceConnection CommunicateServiceConnection);
     }
 
     interface MSPresenter extends BasePresenter<View> {
         void merchantSearch(Context context);
-
         void initiateConnection(Context context, ServiceConnection CommunicateServiceConnection);
 
     }
