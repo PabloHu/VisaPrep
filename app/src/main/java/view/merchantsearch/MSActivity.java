@@ -1,5 +1,6 @@
 package view.merchantsearch;
 
+import android.content.Intent;
 import android.content.ServiceConnection;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class MSActivity extends AppCompatActivity implements MSContract.View {
         mspresenter.attachView(this);
 
 
+
         initConnection();
         rvMerchSearch = (RecyclerView) findViewById(R.id.rvMerchSearch);
 
@@ -45,6 +47,15 @@ public class MSActivity extends AppCompatActivity implements MSContract.View {
                 mspresenter.merchantSearch(getBaseContext());
             }
         });
+
+
+        /*
+        //---------test launch other app
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.software.huaman.visaservice");
+        if (launchIntent != null) {
+            startActivity(launchIntent);//null pointer check in case package name was not found
+        }
+        */
     }
 
     private void initConnection() {

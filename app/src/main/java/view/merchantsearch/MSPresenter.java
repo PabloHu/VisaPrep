@@ -128,5 +128,8 @@ public class MSPresenter implements MSContract.MSPresenter {
         view.updateServiceConnection(CommunicateServiceConnection);
     }
 
+public void testSend(){
 
+
+}
 }
